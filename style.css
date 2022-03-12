@@ -30,12 +30,12 @@ main {
     padding: 1rem;
 }
 
-p {
-    font-weight: 600;
-}
-
 main > * {
     margin: 0.25rem;
+}
+
+p {
+    font-weight: 600;
 }
 
 #grid-container {
@@ -74,4 +74,15 @@ ul {
 a {
     text-decoration: none;
 
+}
+
+/* SFX DIV ANIMATION (SEE JAVASCRIPT FILE) */
+.pressed {
+    animation: resize 0.1s alternate;
+}
+
+@keyframes resize {
+    100% {
+        transform: scale(1.2)
+    }
 }
