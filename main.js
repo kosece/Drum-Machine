@@ -55,6 +55,7 @@ let fragmentoAudio = new DocumentFragment;
 for (effect of drumEffects) {
     let div = document.createElement("div");
     div.classList.add("effect");
+    div.setAttribute('data-key', effect.keyListener)
 
     let effectKey = document.createElement("h2");
     effectKey.textContent = effect.keyListener;
@@ -71,14 +72,17 @@ for (effect of drumEffects) {
     fragmentoAudio.appendChild(audio)    
 }
 
-window.addEventListener('keydown', function(e) {
+window.addEventListener('keypress', function(e) {
     console.log(e.key)
-    drumEffects.filter(effect => {
-        return effect.keyListener == e.key;
-    })
-    let audioToPlay = document.querySelector(`[data-key='${e.key}']`);
-    audioToPlay.play();
+    document.querySelector(`audio[data-key='${e.key}']`).play();
+    let divDelEfecto = document.querySelector(`div[data-key='${e.key}']`);
+    divDelEfecto.classList.add('pressed'); // Add 'pressed' status to the div that the key is linked to
 }) 
+
+window.addEventListener('keyup', function() {
+    document.querySelector(".pressed").classList.remove('pressed')
+})
+
 
 gridContainer.appendChild(fragmentoEffects)
 body.appendChild(fragmentoAudio);
