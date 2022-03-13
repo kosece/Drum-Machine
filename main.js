@@ -81,8 +81,8 @@ window.addEventListener('keypress', function(e) {
     divDelEfecto.classList.add('pressed'); // Add 'pressed' status to the div that the key is linked to
 }) 
 
-window.addEventListener('keyup', function() {
-    document.querySelector(".pressed").classList.remove('pressed')
+window.addEventListener('keyup', function(e) {
+    document.querySelector(`.pressed[data-key="${e.key}"]`).classList.remove('pressed') // Remove pressed class from div whose key stopped being pressed.
 })
 
 
