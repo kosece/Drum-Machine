@@ -78,7 +78,7 @@ a {
 
 /* SFX DIV ANIMATION (SEE JAVASCRIPT FILE) */
 .pressed {
-    animation: resize 0.1s alternate;
+    animation: resize 0.1s alternate forwards;
 }
 
 @keyframes resize {

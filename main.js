@@ -73,8 +73,10 @@ for (effect of drumEffects) {
 }
 
 window.addEventListener('keypress', function(e) {
-    console.log(e.key)
-    document.querySelector(`audio[data-key='${e.key}']`).play();
+    let audio = document.querySelector(`audio[data-key='${e.key}']`);
+    audio.currentTime = 0; // "rewinds" the audio back to the beginning before playing it, allowing the user to play the same audio before it finishes playing.
+    audio.play();
+
     let divDelEfecto = document.querySelector(`div[data-key='${e.key}']`);
     divDelEfecto.classList.add('pressed'); // Add 'pressed' status to the div that the key is linked to
 }) 
